@@ -11,18 +11,55 @@ class LibrarySystem<E> {
     static PriorityQueue<Table> table = new PriorityQueue<>();
     static AVLTree<Book> books = new AVLTree<>();
 
+
+
+    static void showBook(){
+        Scanner scn = new Scanner(System.in);
+        List<Book> book = books.inorderList();
+        Map<Character, Book> category = new HashMap<>();
+        for (int i = 0; i < book.size(); i++) {
+            category.put(book.get(i).getID().charAt(0),book.get(i));
+        }
+        Map<String, Book> author = new HashMap<>();
+        for (int i = 0; i < book.size(); i++) {
+            author.put(book.get(i).getAuthor(),book.get(i));
+        }
+        System.out.println("1 - With Category");
+        System.out.println("2 - With Author");
+        System.out.println("3 - All Books");
+        int a = scn.nextInt();
+        if(a == 1) {
+            String buffer = scn.nextLine();
+            String b = scn.nextLine();
+            System.out.println(category.get(b.charAt(0)));
+        }
+        else if(a == 2) {
+            String buffer = scn.nextLine();
+            String b = scn.nextLine();
+            System.out.println(author.get(b));
+        }
+        else if(a == 3) {
+            for (int i = 0; i <book.size() ; i++) {
+                System.out.println(book.get(i));
+            }
+        }
+
+    }
     /**
      * Add book if Id is taken it sends message.
      *
      * @param a the a
      */
-    static void addBook(Book a) {
+    static boolean addBook(Book a) {
+
 
         if (books.contains(a)) {
             System.out.println("This Id has been taken");
+            return false;
         } else {
             books.add(a);
             System.out.println(a + " has been added to the system");
+            return true;
         }
 
     }
@@ -30,16 +67,20 @@ class LibrarySystem<E> {
     /**
      * Remove book.
      *
-     * @param b the b
+     * @param Id the book's ID
      */
-    static void removeBook(Book b) {
-        System.out.println(b);
-        if (books.contains(b)) {
-            System.out.println("Removed");
-            books.delete(b);
-        } else {
-            System.out.println("This book not in the system");
+    static void removeBook(String Id) {
+        List<Book> book = books.inorderList();
+
+        for (int i = 0; i < book.size(); i++) {
+            if (book.get(i).getID().equals(Id)){
+                books.remove(book.get(i));
+                System.out.println("Removed");
+                return;
+            }
         }
+        System.out.println("This book not in the system");
+
     }
 
 

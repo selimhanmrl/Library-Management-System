@@ -43,11 +43,7 @@ public class Table extends Inventory{
      * @param status to be assigned
      * @param time   to be assigned
      */
-<<<<<<< HEAD
     protected Table(String id, boolean status, LocalDateTime time) {
-=======
-    protected Table(int id, boolean status, LocalDateTime time) {
->>>>>>> 3438362a2510b9fd78973b91e6a3357fadbdce14
         super(id, status, time);
     }
     /**

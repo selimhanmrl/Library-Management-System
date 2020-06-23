@@ -7,11 +7,7 @@ public abstract class Inventory implements InventoryInterface{
     /**
      * Holds ID of a book, table
      */
-<<<<<<< HEAD
     private String ID;
-=======
-    private int ID;
->>>>>>> 3438362a2510b9fd78973b91e6a3357fadbdce14
 
     /**
      * Holds status of a book, table
@@ -29,12 +25,8 @@ public abstract class Inventory implements InventoryInterface{
      * @param status to be assigned
      * @param time to be assigned
      */
-<<<<<<< HEAD
 
     protected Inventory(String id, boolean status, LocalDateTime time) {
-=======
-    protected Inventory(int id, boolean status, LocalDateTime time) {
->>>>>>> 3438362a2510b9fd78973b91e6a3357fadbdce14
         this.ID = id;
         this.status = status;
         this.time = time;
@@ -68,19 +60,11 @@ public abstract class Inventory implements InventoryInterface{
     /**
      * Setters and getters
      */
-<<<<<<< HEAD
     public String getID() {
         return ID;
     }
 
     public void setID(String ID) {
-=======
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
->>>>>>> 3438362a2510b9fd78973b91e6a3357fadbdce14
         this.ID = ID;
     }
     public boolean getStatus() {
